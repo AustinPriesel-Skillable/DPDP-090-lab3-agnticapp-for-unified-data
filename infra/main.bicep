@@ -187,7 +187,7 @@ module aifoundry 'deploy_ai_foundry.bicep' = {
     deployingUserPrincipalId: deployingUserPrincipalId
     deployingUserPrincipalType: deployingUserPrincipalType
     isWorkshop: isWorkshop
-    searchServiceLocation: searchServiceLocation
+    searchServiceLocation: aiDeploymentsLocation
   }
   scope: resourceGroup(resourceGroup().name)
 }
