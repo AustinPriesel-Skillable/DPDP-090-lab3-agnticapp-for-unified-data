@@ -9,7 +9,7 @@ param solutionLocation string
 param appSettings object = {}
 param appServicePlanId string
 
-var imageName = 'DOCKER|${acrName}.azurecr.io/da-app:${imageTag}'
+var imageName = 'DOCKER|${acrName}/da-app:${imageTag}'
 //var name = '${solutionName}-app'
 param name string
 module appService 'deploy_app_service.bicep' = {
