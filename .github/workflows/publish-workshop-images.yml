@@ -1,0 +1,31 @@
+name: Publish workshop images
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+  packages: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - image: da-app
+            dockerfile: src/App/WebApp.Dockerfile
+            context: src/App
+          - image: da-api
+            dockerfile: src/api/python/ApiApp.Dockerfile
+            context: src/api/python
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - uses: docker/build-push-action@v6
+        with:
+          context: ${{ matrix.context }}
+          file: ${{ matrix.dockerfile }}
+          push: true
+          tags: ghcr.io/technofocus-pte/${{ matrix.image }}:latest_workshop
