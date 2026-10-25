@@ -192,7 +192,7 @@
     },
     "acrName": {
       "type": "string",
-      "defaultValue": "[if(parameters('isWorkshop'), 'dataagentscontainerregworkshop', 'dataagentscontainerreg')]",
+      "defaultValue": "[if(parameters('isWorkshop'), 'ghcr.io/technofocus-pte', 'dataagentscontainerreg.azurecr.io')]",
       "metadata": {
         "description": "Name of the Azure Container Registry"
       }
@@ -2674,7 +2674,7 @@
             "existingAIServiceResourceGroup": "[if(not(empty(parameters('azureExistingAIProjectResourceId'))), split(parameters('azureExistingAIProjectResourceId'), '/')[4], resourceGroup().name)]",
             "existingAIServicesName": "[if(not(empty(parameters('azureExistingAIProjectResourceId'))), split(parameters('azureExistingAIProjectResourceId'), '/')[8], '')]",
             "existingAIProjectName": "[if(not(empty(parameters('azureExistingAIProjectResourceId'))), split(parameters('azureExistingAIProjectResourceId'), '/')[10], '')]",
-            "imageName": "[format('DOCKER|{0}.azurecr.io/da-api:{1}', parameters('acrName'), parameters('imageTag'))]",
+            "imageName": "[format('DOCKER|{0}/da-api:{1}', parameters('acrName'), parameters('imageTag'))]",
             "reactAppLayoutConfig": "{\r\n  \"appConfig\": {\r\n      \"CHAT_CHATHISTORY\": {\r\n        \"CHAT\": 70,\r\n        \"CHATHISTORY\": 30\r\n      }\r\n    }\r\n  }\r\n}"
           },
           "resources": [
@@ -3356,7 +3356,7 @@
             "existingAIServiceResourceGroup": "[if(not(empty(parameters('azureExistingAIProjectResourceId'))), split(parameters('azureExistingAIProjectResourceId'), '/')[4], resourceGroup().name)]",
             "existingAIServicesName": "[if(not(empty(parameters('azureExistingAIProjectResourceId'))), split(parameters('azureExistingAIProjectResourceId'), '/')[8], '')]",
             "existingAIProjectName": "[if(not(empty(parameters('azureExistingAIProjectResourceId'))), split(parameters('azureExistingAIProjectResourceId'), '/')[10], '')]",
-            "imageName": "[format('DOCKER|{0}.azurecr.io/da-api-dotnet:{1}', parameters('acrName'), parameters('imageTag'))]",
+            "imageName": "[format('DOCKER|{0}/da-api-dotnet:{1}', parameters('acrName'), parameters('imageTag'))]",
             "reactAppLayoutConfig": "{\r\n  \"appConfig\": {\r\n      \"CHAT_CHATHISTORY\": {\r\n        \"CHAT\": 70,\r\n        \"CHATHISTORY\": 30\r\n      }\r\n    }\r\n  }\r\n}"
           },
           "resources": [
@@ -3972,7 +3972,7 @@
             }
           },
           "variables": {
-            "imageName": "[format('DOCKER|{0}.azurecr.io/da-app:{1}', parameters('acrName'), parameters('imageTag'))]"
+            "imageName": "[format('DOCKER|{0}/da-app:{1}', parameters('acrName'), parameters('imageTag'))]"
           },
           "resources": [
             {
