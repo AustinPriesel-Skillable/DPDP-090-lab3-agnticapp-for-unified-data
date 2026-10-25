@@ -123,7 +123,7 @@ param labInstanceId string = '@lab.LabInstance.Id'
 var solutionPrefix = 'da${labInstanceId}'
 
 @description('Name of the Azure Container Registry')
-param acrName string = isWorkshop ? 'dataagentscontainerregworkshop' : 'dataagentscontainerreg'
+param acrName string = isWorkshop ? 'ghcr.io/technofocus-pte' : 'dataagentscontainerreg.azurecr.io'
 
 //Get the current deployer's information
 var deployerInfo = deployer()
