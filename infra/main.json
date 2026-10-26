@@ -192,7 +192,7 @@
     },
     "acrName": {
       "type": "string",
-      "defaultValue": "[if(parameters('isWorkshop'), 'ghcr.io/technofocus-pte', 'dataagentscontainerreg.azurecr.io')]",
+      "defaultValue": "[if(parameters('isWorkshop'), 'ghcr.io/mvenkateswaramma', 'dataagentscontainerreg.azurecr.io')]",
       "metadata": {
         "description": "Name of the Azure Container Registry"
       }
